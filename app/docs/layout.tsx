@@ -1,13 +1,17 @@
 import Link from 'next/link';
 
-export default function Home() {
+export default function DocsLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-black">
+    <div className="min-h-screen bg-white dark:bg-black">
       {/* Navigation */}
       <nav className="border-b border-zinc-200 dark:border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            <div className="flex items-center">
+            <Link href="/" className="flex items-center">
               <svg
                 viewBox="0 0 69 26"
                 fill="none"
@@ -40,7 +44,7 @@ export default function Home() {
                 <path d="M53.2441 19.1264C54.0064 19.1264 55.2766 19.3724 55.2766 21.2718V24.5105C55.2766 24.9204 55.3275 25.3167 55.8991 25.3167C55.9499 25.3167 55.9627 25.4807 55.9627 25.549C55.9627 25.631 55.9499 25.795 55.8991 25.795H53.2823C53.2441 25.795 53.2187 25.6584 53.2187 25.5627C53.2187 25.4671 53.2314 25.3167 53.2823 25.3167C53.8666 25.3167 53.892 24.9204 53.892 24.5105V21.5178C53.892 19.9053 53.4347 19.8507 53.0536 19.8507C52.4184 19.8507 52.2024 20.3699 52.0119 20.7525V24.5105C52.0119 24.9341 52.0627 25.3167 52.6598 25.3167C52.7106 25.3167 52.7233 25.508 52.7233 25.549C52.7233 25.6037 52.6979 25.795 52.6598 25.795H49.8777C49.8269 25.795 49.8015 25.6583 49.8015 25.549C49.8015 25.4671 49.8269 25.3168 49.8777 25.3167C50.6526 25.3167 50.7034 24.9068 50.7034 24.5105V20.5476C50.7034 20.0693 50.5764 19.7413 49.8777 19.7413C49.8269 19.7413 49.8015 19.6047 49.8015 19.4954C49.8015 19.3861 49.8269 19.2631 49.8777 19.2631H51.6308C51.8213 19.2631 51.9611 19.3314 51.9992 19.673C52.0119 19.7687 52.0754 19.796 52.1389 19.7276C52.3422 19.4817 52.6598 19.1264 53.2441 19.1264Z"></path>
                 <path d="M48.0394 25.9621H46.8V24.629H48.0394V25.9621Z"></path>
               </svg>
-            </div>
+            </Link>
             <div className="flex items-center space-x-8">
               <Link href="/docs" className="text-sm text-zinc-600 hover:text-black dark:text-zinc-400 dark:hover:text-white">
                 文档
@@ -56,99 +60,63 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center">
-          <h1 className="text-5xl sm:text-6xl font-bold tracking-tight text-black dark:text-white mb-6">
-            AI 驱动的开发平台
-          </h1>
-          <p className="text-xl text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl mx-auto">
-            cto.new 是一个革命性的 AI 开发助手，帮助您更快地构建应用程序。通过自然语言对话，让 AI 帮您编写代码、管理项目和完成任务。
-          </p>
-          <div className="flex justify-center space-x-4">
-            <Link
-              href="/docs"
-              className="px-6 py-3 bg-black dark:bg-white text-white dark:text-black rounded-lg font-medium hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
-            >
-              开始使用
-            </Link>
-            <Link
-              href="/docs/essentials/chats"
-              className="px-6 py-3 border border-zinc-300 dark:border-zinc-700 rounded-lg font-medium hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors"
-            >
-              了解更多
-            </Link>
-          </div>
-        </div>
-      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="flex gap-8">
+          {/* Sidebar */}
+          <aside className="w-64 flex-shrink-0">
+            <nav className="sticky top-8 space-y-1">
+              <div className="mb-4">
+                <h3 className="px-3 text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-2">
+                  开始使用
+                </h3>
+                <Link
+                  href="/docs"
+                  className="block px-3 py-2 text-sm rounded-md text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                >
+                  简介
+                </Link>
+                <Link
+                  href="/docs/getting-started"
+                  className="block px-3 py-2 text-sm rounded-md text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                >
+                  快速开始
+                </Link>
+              </div>
+              <div className="mb-4">
+                <h3 className="px-3 text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-2">
+                  核心功能
+                </h3>
+                <Link
+                  href="/docs/essentials/chats"
+                  className="block px-3 py-2 text-sm rounded-md text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                >
+                  对话
+                </Link>
+                <Link
+                  href="/docs/essentials/tasks"
+                  className="block px-3 py-2 text-sm rounded-md text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                >
+                  任务
+                </Link>
+                <Link
+                  href="/docs/essentials/projects"
+                  className="block px-3 py-2 text-sm rounded-md text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                >
+                  项目
+                </Link>
+              </div>
+            </nav>
+          </aside>
 
-      {/* Features Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="p-6 border border-zinc-200 dark:border-zinc-800 rounded-lg">
-            <div className="text-3xl mb-4">💬</div>
-            <h3 className="text-xl font-semibold mb-2 text-black dark:text-white">智能对话</h3>
-            <p className="text-zinc-600 dark:text-zinc-400">
-              通过自然语言对话与 AI 交互，描述您想要构建的内容，AI 会帮您生成代码。
-            </p>
-          </div>
-          <div className="p-6 border border-zinc-200 dark:border-zinc-800 rounded-lg">
-            <div className="text-3xl mb-4">✅</div>
-            <h3 className="text-xl font-semibold mb-2 text-black dark:text-white">任务管理</h3>
-            <p className="text-zinc-600 dark:text-zinc-400">
-              创建和管理开发任务，AI 会自动理解需求并实现代码更改。
-            </p>
-          </div>
-          <div className="p-6 border border-zinc-200 dark:border-zinc-800 rounded-lg">
-            <div className="text-3xl mb-4">🚀</div>
-            <h3 className="text-xl font-semibold mb-2 text-black dark:text-white">快速部署</h3>
-            <p className="text-zinc-600 dark:text-zinc-400">
-              从想法到部署，AI 帮助您快速构建和发布应用程序。
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* How it Works Section */}
-      <div className="bg-zinc-50 dark:bg-zinc-900 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12 text-black dark:text-white">
-            如何使用
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                1
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-black dark:text-white">描述您的想法</h3>
-              <p className="text-zinc-600 dark:text-zinc-400">
-                使用自然语言描述您想要构建的应用程序或功能。
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                2
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-black dark:text-white">AI 生成代码</h3>
-              <p className="text-zinc-600 dark:text-zinc-400">
-                AI 理解您的需求并自动生成高质量的代码。
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                3
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-black dark:text-white">审查和部署</h3>
-              <p className="text-zinc-600 dark:text-zinc-400">
-                审查生成的代码，进行必要的调整，然后部署您的应用程序。
-              </p>
-            </div>
-          </div>
+          {/* Main Content */}
+          <main className="flex-1 min-w-0">
+            {children}
+          </main>
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-zinc-200 dark:border-zinc-800 py-12">
+      <footer className="border-t border-zinc-200 dark:border-zinc-800 py-12 mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-zinc-600 dark:text-zinc-400">
             <p>© 2024 cto.new. 保留所有权利。</p>
