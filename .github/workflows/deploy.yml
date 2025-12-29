@@ -1,4 +1,4 @@
-name: 部署到 GitHub Pages
+name: 部署 Next.js 到 GitHub Pages
 
 on:
   push:
@@ -27,15 +27,23 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+      - name: 设置 GitHub Pages
+        # 这个步骤会自动配置 Next.js 的部分设置，并禁用 Jekyll
+        uses: actions/configure-pages@v5
+        with:
+          static_site_generator: next
+
       - name: 安装依赖
         run: npm ci
 
       - name: 构建项目
+        # 确保你的 package.json 中 build 命令是 "next build"
         run: npm run build
 
       - name: 上传构建产物
         uses: actions/upload-pages-artifact@v3
         with:
+          # Next.js 静态导出的默认文件夹是 ./out
           path: ./out
 
   deploy:
