@@ -2,6 +2,12 @@
 
 这是 cto.new 的中文文档网站，使用 [Next.js](https://nextjs.org) 构建。
 
+[![部署到 GitHub Pages](https://img.shields.io/badge/部署-GitHub_Pages-blue?style=for-the-badge&logo=github)](https://github.com)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
+
+> 🚀 **快速部署**: 查看 [快速开始指南](./QUICKSTART.md) 了解如何在 5 分钟内部署到 GitHub Pages。
+
 ## 关于 cto.new
 
 cto.new 是一个 AI 驱动的开发平台，旨在帮助开发者更快、更智能地构建应用程序。通过自然语言对话，您可以快速创建项目、编写代码、管理任务，并将您的应用程序部署到生产环境。
@@ -55,11 +61,44 @@ bun dev
 - [Next.js 文档](https://nextjs.org/docs) - 学习 Next.js 特性和 API
 - [学习 Next.js](https://nextjs.org/learn) - 交互式 Next.js 教程
 
-## 部署
+## 构建和预览
 
-最简单的部署方式是使用 [Vercel 平台](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)。
+```bash
+# 构建静态网站
+npm run build
 
-查看 [Next.js 部署文档](https://nextjs.org/docs/app/building-your-application/deploying) 了解更多详情。
+# 预览构建结果
+npm run preview
+
+# 代码检查
+npm run lint
+```
+
+## 部署到 GitHub Pages
+
+本项目已配置为可以轻松部署到 GitHub Pages：
+
+### 快速部署
+
+1. 推送代码到 GitHub 仓库
+2. 在仓库设置中启用 GitHub Pages（Source 选择 "GitHub Actions"）
+3. 代码推送后会自动构建和部署
+
+### 详细步骤
+
+查看 [部署指南](./DEPLOYMENT.md) 获取完整的部署说明。
+
+### 部署检查清单
+
+查看 [部署检查清单](./DEPLOYMENT_CHECKLIST.md) 确保所有步骤都已完成。
+
+### 其他部署选项
+
+- **Vercel**: [部署到 Vercel](https://vercel.com/new)
+- **Netlify**: 支持静态站点托管
+- **Cloudflare Pages**: 高性能边缘托管
+
+查看 [Next.js 部署文档](https://nextjs.org/docs/app/building-your-application/deploying) 了解更多选项。
 
 ## 贡献
 
